@@ -27,4 +27,8 @@ public class KafkatopicConfig {
     public NewTopic createUserTopic(){
         return new NewTopic("user-create-request",1,(short) 1);
     }
+
+    @Bean NewTopic getUserTopic(){
+        return new NewTopic("user-get-request",1,(short) 1);
+    }
 }
