@@ -1,4 +1,35 @@
 Project-idea
 
-Teremos 2 api's (user-api,persistence-api)
+Teremos 2 api's (user-api,persistence-api) - JDK 17 + KAFKA withou beekeeper
 
+	Features user-api
+		1 - Deve ter a representação da request e response que representam usuário (Padrão adpter com records)
+		2 - Deve se comunicar com a api de persitsencia via protocolo amqp (Kafka-streams)
+		3 - Deve gerenciar os Producers// do crud (create-read-update-delete)
+		4 - Deve utilizar a camada de segurança do Spring-Security combinado com Bcrypt para hash de senhas
+		
+
+	Features persistence-api 
+		1 - Deve ter a representação da entidade usuário (persistencia no banco utilizando jpa)
+		2 - Deve gerenciar as operações de crud atráves dos Consumer//
+		3 - Deve verificar se o userEmail já existe -> throw exception
+		4 - Deve verificar se o documentNumber já existe -> throw exception
+		4 - Deve gerenciar toda a camada de exceptions (O USER API É UM SHELL/BFF)
+
+
+	UserRequestDTO -> {
+		string:name
+		string:email
+		string:password
+		string: phoneNumber
+		string: documentNumber
+	}
+
+
+	UserResponseDTO -> {
+		long:userId
+		string:name
+		string:email
+		string:phoneNumber
+		string:documentNumber
+	}
