@@ -1,6 +1,5 @@
 package io.github.EduardoMeloDeOliveira.user_api.config;
 
-import io.github.EduardoMeloDeOliveira.user_api.dto.UserRequestDTO;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,22 +16,21 @@ import java.util.Map;
 @Configuration
 public class KafkaProducerConfig {
 
-
     @Value("${spring.kafka.bootstrap.servers}")
     private String bootStrapServer;
 
     @Bean
-    public ProducerFactory<String, UserRequestDTO> producerFactory() {
+    public ProducerFactory<String, Object> producerFactory() {
         Map<String, Object> properties = new HashMap<>();
-        properties.put(JsonSerializer.ADD_TYPE_INFO_HEADERS,false);
-        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,bootStrapServer);
+        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootStrapServer);
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,JsonSerializer.class);
+        properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+        properties.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);
         return new DefaultKafkaProducerFactory<>(properties);
     }
 
     @Bean
-    public KafkaTemplate<String, UserRequestDTO> kafkaTemplate() {
+    public KafkaTemplate<String, Object> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 }
