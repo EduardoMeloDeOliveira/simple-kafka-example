@@ -3,6 +3,7 @@ package io.github.EduardoMeloDeOliveira.user_api.config;
 import io.github.EduardoMeloDeOliveira.user_api.dto.UserRequestDTO;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
@@ -17,7 +18,8 @@ import java.util.Map;
 public class KafkaProducerConfig {
 
 
-    private final String bootStrapServer = "localhost:9092";
+    @Value("${spring.kafka.bootstrap.servers}")
+    private String bootStrapServer;
 
     @Bean
     public ProducerFactory<String, UserRequestDTO> producerFactory() {

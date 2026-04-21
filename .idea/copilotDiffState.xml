@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/docker-compose.yml">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/docker-compose.yml" />
+              <option name="originalContent" value="services:&#10;  kafka:&#10;    image: confluentinc/cp-kafka:7.6.1&#10;    container_name: kafka&#10;    ports:&#10;      - &quot;9092:9092&quot;&#10;    environment:&#10;      # KRaft single-node (no Zookeeper)&#10;      - KAFKA_NODE_ID=1&#10;      - KAFKA_PROCESS_ROLES=broker,controller&#10;      - KAFKA_LISTENERS=PLAINTEXT://kafka:29092,PLAINTEXT_HOST://0.0.0.0:9092,CONTROLLER://kafka:29093&#10;      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092&#10;      - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT,CONTROLLER:PLAINTEXT&#10;      - KAFKA_INTER_BROKER_LISTENER_NAME=PLAINTEXT&#10;      - KAFKA_CONTROLLER_LISTENER_NAMES=CONTROLLER&#10;      - KAFKA_CONTROLLER_QUORUM_VOTERS=1@kafka:29093&#10;      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1&#10;      - KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR=1&#10;      - KAFKA_TRANSACTION_STATE_LOG_MIN_ISR=1&#10;      - KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS=0&#10;      - CLUSTER_ID=MkU3OEVBNTcwNTJENDM2Qk&#10;    volumes:&#10;      - kafka_data:/var/lib/kafka/data&#10;&#10;  kafka-ui:&#10;    image: provectuslabs/kafka-ui:latest&#10;    container_name: kafka-ui&#10;    depends_on:&#10;      - kafka&#10;    ports:&#10;      - &quot;8080:8080&quot;&#10;    environment:&#10;      - KAFKA_CLUSTERS_0_NAME=local&#10;      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:29092&#10;&#10;volumes:&#10;  kafka_data:&#10;" />
+              <option name="updatedContent" value="services:&#10;  kafka:&#10;    image: confluentinc/cp-kafka:7.6.1&#10;    container_name: kafka&#10;    ports:&#10;      - &quot;9092:9092&quot;&#10;    environment:&#10;      # KRaft single-node (no Zookeeper)&#10;      - KAFKA_NODE_ID=1&#10;      - KAFKA_PROCESS_ROLES=broker,controller&#10;      - KAFKA_LISTENERS=PLAINTEXT://kafka:29092,PLAINTEXT_HOST://0.0.0.0:9092,CONTROLLER://kafka:29093&#10;      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092&#10;      - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT,CONTROLLER:PLAINTEXT&#10;      - KAFKA_INTER_BROKER_LISTENER_NAME=PLAINTEXT&#10;      - KAFKA_CONTROLLER_LISTENER_NAMES=CONTROLLER&#10;      - KAFKA_CONTROLLER_QUORUM_VOTERS=1@kafka:29093&#10;      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1&#10;      - KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR=1&#10;      - KAFKA_TRANSACTION_STATE_LOG_MIN_ISR=1&#10;      - KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS=0&#10;      - CLUSTER_ID=MkU3OEVBNTcwNTJENDM2Qk&#10;    volumes:&#10;      - kafka_data:/var/lib/kafka/data&#10;&#10;  kafka-ui:&#10;    image: provectuslabs/kafka-ui:latest&#10;    container_name: kafka-ui&#10;    depends_on:&#10;      - kafka&#10;    ports:&#10;      - &quot;8081:8080&quot;&#10;    environment:&#10;      - KAFKA_CLUSTERS_0_NAME=local&#10;      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:29092&#10;&#10;volumes:&#10;  kafka_data:" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
